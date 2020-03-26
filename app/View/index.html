@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>直播</title>
+</head>
+<body>
+<div style="width: 99%; height: 300px; margin: 5px auto;">
+    <canvas style="width: 100%" id="canvas" data-type="1"> </canvas>
+</div>
+<script type="text/javascript" src="mpeg.min.js"></script>
+<script>
+var wsServer = 'ws://10.0.1.8/ws';
+var canvas=document.getElementById('canvas');
+var player = new mpeg.Player(wsServer, {canvas: canvas, disableGl:false}, function(){
+//获取视频流成功
+console.log('ok');
+},function () {
+//获取视频流失败
+
+console.log('no');
+},function(data){
+//娃娃抓取结果
+
+console.log('结果：');
+console.log(data);
+});
+</script>
+</body>
+</html>
